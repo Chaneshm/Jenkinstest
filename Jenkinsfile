@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage ('Build') {
       steps {
-      sh 'echo "HELLO WORLD"'
+      sh 'echo "HELLO chanesh"'
       sh '''
         echo "Thi will list current dir content from latest"
         ls -lh
@@ -12,7 +12,7 @@ pipeline {
     }
     stage ('Test') {
       steps {
-      sh 'echo "HELLO TEST"'
+      sh 'echo "HELLO branch2"'
       sh '''
         echo "This list current dir"
         pwd
