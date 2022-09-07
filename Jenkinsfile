@@ -1,32 +1,23 @@
 pipeline {
   agent any
-   stages {
+  stages {
     stage ('Build') {
       steps {
-        sh '''#!/bin/bash
-        python3 -m venv test3
-        source test3/bin/activate
-        pip install pip --upgrade
-        pip install -r requirements.txt
-        export FLASK_APP=application
-        flask run &
+      sh 'echo "HELLO WORLD"'
+      sh '''
+        echo "Thi will list current dir content from latest"
+        ls -lh
         '''
-     }
-   }
-    stage ('test') {
-      steps {
-        sh '''#!/bin/bash
-        source test3/bin/activate
-        py.test --verbose --junit-xml test-reports/results.xml
-        ''' 
       }
-    
-      post{
-        always {
-          junit 'test-reports/results.xml'
-        }
-       
+    }
+    stage ('Test') {
+      steps {
+      sh 'echo "HELLO TEST"'
+      sh '''
+        echo "This list current dir"
+        pwd
+        '''
       }
     }
   }
- }
+}
